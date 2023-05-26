@@ -21,7 +21,7 @@ public:
 	int GetValue() const;
 	void HandleEvent(const SDL_Event& event);
 
-	virtual bool Update() override;
+	virtual bool Update() override { return false; }
 	virtual bool Render() override;
 
 private:
@@ -36,5 +36,5 @@ private:
 	bool m_isDragging = false;
 	int m_offset = 0;
 	SDL_Point m_backgroundPosition = { 0, 0 };
-	SDL_Point m_sliderPosition =  {0, 0 };
+	SDL_Point m_sliderPosition = { 0, 0 };
 };

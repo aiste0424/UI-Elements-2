@@ -2,7 +2,7 @@
 
 ProgressBar::ProgressBar()
 {
-    this->SetPosition({ 50, 50 });
+    this->SetPosition({ 350, 50 });
     std::string defaultBackgroundSpriteFilename = "Assets/ProgressBar/ProgressBar_Background.png";
     std::string defaultFillSpriteFilename = "Assets/ProgressBar/ProgressBar_Fill.png";
 
@@ -20,7 +20,7 @@ ProgressBar::ProgressBar()
     };
 
     InitializingDefaults(m_backgroundSprite, defaultBackgroundSpriteFilename, defaultBackgroundSpriteDimension, m_backgroundRect);
-    InitializingDefaults(m_fillSprite, defaultFillSpriteFilename, defaultFillSpriteDimension, m_fillRect); 
+    InitializingDefaults(m_fillSprite, defaultFillSpriteFilename, defaultFillSpriteDimension, m_fillRect);
 }
 
 ProgressBar::~ProgressBar()
@@ -52,7 +52,7 @@ void ProgressBar::SetValue(int value)
     m_currentValue = value;
     m_currentValue = std::max(0, std::min(m_currentValue, m_maxValue));
 
-    m_fillSprite.SetSpriteDimension({m_backgroundSprite.GetSpriteDimension().x * m_currentValue / m_maxValue, m_backgroundSprite.GetSpriteDimension().y});
+    m_fillSprite.SetSpriteDimension({ m_backgroundSprite.GetSpriteDimension().x * m_currentValue / m_maxValue, m_backgroundSprite.GetSpriteDimension().y });
 }
 
 bool ProgressBar::Update()

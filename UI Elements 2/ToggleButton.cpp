@@ -1,9 +1,10 @@
 #include "ToggleButton.h"
 #include "Input.h"
+#include <iostream>
 
 ToggleButton::ToggleButton()
 {
-    this->SetPosition({ 50, 50 });
+    this->SetPosition({ 50, 350 });
     std::string defaultOnSpriteFilename = "Assets/ToggleButton/ToggleButton_On.png";
     std::string defaultOffSpriteFilename = "Assets/ToggleButton/ToggleButton_Off.png";
 
@@ -16,7 +17,7 @@ ToggleButton::ToggleButton()
         sprite.Load(filename);
         sprite.SetOriginalDimension();
         sprite.SetSpriteDimension(spriteDimensions);
-        
+
     };
 
     InitializingDefaults(m_onSprite, defaultOnSpriteFilename, defaultOnSpriteDimension);
@@ -49,12 +50,12 @@ void ToggleButton::SetOffAttributes(const std::string& filename, const SDL_Point
 
 void ToggleButton::SetState(bool state)
 {
-	m_state = state;
+    m_state = state;
 }
 
 bool ToggleButton::GetToggleState() const
 {
-	return m_state;
+    return m_state;
 }
 
 void ToggleButton::HandleEvent(const SDL_Event& event)
@@ -68,6 +69,14 @@ void ToggleButton::HandleEvent(const SDL_Event& event)
             mouseY >= m_rect.y && mouseY <= m_rect.y + m_rect.h)
         {
             m_state = !m_state;
+            if (m_state)
+            {
+                std::cout << "Toggle state: ON" << std::endl;
+            }
+            else
+            {
+                std::cout << "Toggle state: OFF" << std::endl;
+            }
         }
     }
 }
@@ -82,5 +91,5 @@ bool ToggleButton::Render()
     {
         m_offSprite.Render(this->GetPosition());
     }
-	return false;
+    return false;
 }

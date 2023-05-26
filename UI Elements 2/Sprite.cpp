@@ -15,6 +15,11 @@ bool Sprite::Load(const std::string& filename)
 	}
 
 	m_texture = SDL_CreateTextureFromSurface(Screen::Instance()->GetRenderer(), rawImageData);
+	if (!m_texture)
+	{
+		std::cout << "Error creating texture: " << SDL_GetError() << std::endl;
+		return false;
+	}
 	return true;
 }
 

@@ -1,5 +1,6 @@
 #include "Checkbox.h"
 #include "Input.h"
+#include <iostream>
 
 Checkbox::Checkbox()
 {
@@ -47,12 +48,14 @@ void Checkbox::SetUncheckedAttributes(const std::string& filename, const SDL_Poi
 bool Checkbox::OnChecked()
 {
 	m_state = Checkbox::State::Checked;
+	std::cout << "Checkbox ticked" << std::endl;
 	return true;
 }
 
 bool Checkbox::OnUnchecked()
 {
 	m_state = Checkbox::State::Unchecked;
+	std::cout << "Checkbox unticked" << std::endl;
 	return true;
 }
 

@@ -67,12 +67,14 @@ bool Input::isLeftMouseButtonClicked()
 
 	if (buttonState & SDL_BUTTON(SDL_BUTTON_LEFT))
 	{
-		if (!leftButtonPressed) {
+		if (!leftButtonPressed)
+		{
 			leftButtonPressed = true;
 			return true;
 		}
 	}
-	else {
+	else
+	{
 		leftButtonPressed = false;
 	}
 	return false;

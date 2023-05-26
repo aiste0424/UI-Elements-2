@@ -4,7 +4,7 @@
 
 Slider::Slider()
 {
-    this->SetPosition({ 50, 50 });
+    this->SetPosition({ 50, 250 });
     std::string defaultBackgroundSpriteFilename = "Assets/Slider/Slider_Background.png";
     std::string defaultSliderSpriteFilename = "Assets/Slider/Slider_Slider.png";
 
@@ -19,7 +19,7 @@ Slider::Slider()
         sprite.SetSpriteDimension(spriteDimensions);
         position = this->GetPosition();
     };
-    
+
     InitializingDefaults(m_backgroundSprite, defaultBackgroundSpriteFilename, defaultBackgroundSpriteDimension, m_backgroundPosition);
     InitializingDefaults(m_sliderSprite, defaultSliderSpriteFilename, defaultSliderSpriteDimension, m_sliderPosition);
     SetValue(0);
@@ -33,35 +33,36 @@ Slider::~Slider()
 
 void Slider::SetBackgroundAttributes(const std::string& filename, const SDL_Point& dimensions)
 {
-	m_backgroundSprite.Load(filename);
-	m_backgroundSprite.SetOriginalDimension();
-	m_backgroundSprite.SetSpriteDimension(dimensions);
-	m_backgroundPosition = this->GetPosition();
+    m_backgroundSprite.Load(filename);
+    m_backgroundSprite.SetOriginalDimension();
+    m_backgroundSprite.SetSpriteDimension(dimensions);
+    m_backgroundPosition = this->GetPosition();
 }
 
 void Slider::SetSliderAttributes(const std::string& filename, const SDL_Point& dimensions)
 {
-	m_sliderSprite.Load(filename);
-	m_sliderSprite.SetOriginalDimension();
-	m_sliderSprite.SetSpriteDimension(dimensions);
-	m_sliderPosition = this->GetPosition();
-	SetValue(0);
+    m_sliderSprite.Load(filename);
+    m_sliderSprite.SetOriginalDimension();
+    m_sliderSprite.SetSpriteDimension(dimensions);
+    m_sliderPosition = this->GetPosition();
+    SetValue(0);
 }
 
 void Slider::SetValue(int newValue)
 {
-	m_currentValue = newValue;
-	m_currentValue = std::clamp(m_currentValue, m_minValue, m_maxValue);
+    m_currentValue = newValue;
+    m_currentValue = std::clamp(m_currentValue, m_minValue, m_maxValue);
 
-	// Update rendering positions
-	int sliderRange = m_backgroundSprite.GetSpriteDimension().x - m_sliderSprite.GetSpriteDimension().x;
-	m_sliderPosition.x = m_backgroundPosition.x + static_cast<int>((m_currentValue - m_minValue) / static_cast<double>(m_maxValue - m_minValue) * sliderRange);
-	m_sliderPosition.y = m_backgroundPosition.y - m_sliderSprite.GetSpriteDimension().y/2.5;
+    // Update rendering positions
+    int sliderRange = m_backgroundSprite.GetSpriteDimension().x - m_sliderSprite.GetSpriteDimension().x;
+    m_sliderPosition.x = m_backgroundPosition.x + static_cast<int>((m_currentValue - m_minValue) / static_cast<double>(m_maxValue - m_minValue) * sliderRange);
+    m_sliderPosition.y = m_backgroundPosition.y - m_sliderSprite.GetSpriteDimension().y / 2.5;
+    std::cout << "Current slider value: " << m_currentValue << std::endl;
 }
 
 int Slider::GetValue() const
 {
-	return m_currentValue;
+    return m_currentValue;
 }
 
 void Slider::HandleEvent(const SDL_Event& event)
@@ -99,14 +100,9 @@ void Slider::HandleEvent(const SDL_Event& event)
     }
 }
 
-bool Slider::Update()
-{
-	return false;
-}
-
 bool Slider::Render()
 {
-	m_backgroundSprite.Render(m_backgroundPosition);
-	m_sliderSprite.Render(m_sliderPosition);
-	return false;
+    m_backgroundSprite.Render(m_backgroundPosition);
+    m_sliderSprite.Render(m_sliderPosition);
+    return false;
 }

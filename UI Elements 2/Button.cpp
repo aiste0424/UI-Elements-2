@@ -4,7 +4,7 @@
 
 Button::Button()
 {
-    this->SetPosition({ 50, 50 });
+    this->SetPosition({ 200, 50 });
     std::string defaultNormalSpriteFilename = "Assets/Button/Button_Normal.png";
     std::string defaultHoveredSpriteFilename = "Assets/Button/Button_Hovered.png";
 
@@ -74,6 +74,7 @@ bool Button::Update()
         if (Input::Instance()->isLeftMouseButtonClicked())
         {
             m_buttonState = Button::ButtonState::Clicked;
+            std::cout << "Button clicked" << std::endl;
             return true;
         }
         m_buttonState = Button::ButtonState::Hovered;
@@ -89,13 +90,13 @@ bool Button::Update()
 
 bool Button::Render()
 {
-    if (m_buttonState == Button::ButtonState::Hovered)
+    if (m_buttonState == Button::ButtonState::Default)
     {
-        m_hoveredSprite.Render({ m_buttonRect.x, m_buttonRect.y });
+        m_normalSprite.Render({ m_buttonRect.x, m_buttonRect.y });       
     }
     else
     {
-        m_normalSprite.Render({ m_buttonRect.x, m_buttonRect.y });
+        m_hoveredSprite.Render({ m_buttonRect.x, m_buttonRect.y });
     }
     return true;
 }

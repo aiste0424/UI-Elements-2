@@ -34,5 +34,4 @@ private:
 	int m_mouseButtonDown{ 0 };
 
 	SDL_Point m_mousePosition = { 0, 0 };
-	
 };

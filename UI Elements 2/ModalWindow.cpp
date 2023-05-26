@@ -2,7 +2,7 @@
 
 ModalWindow::ModalWindow()
 {
-	this->SetPosition({ 50, 50 });
+	this->SetPosition({ 700, 50 });
 	std::string defaultBackgroundSpriteFilename = "Assets/ModalWindow/ModalWindow_Window.png";
 	std::string defaultCloseButtonSpriteFilename = "Assets/ModalWindow/ModalWindow_CloseButton.png";
 
@@ -10,7 +10,7 @@ ModalWindow::ModalWindow()
 	SDL_Point defaultCloseButtonSpriteDimension = { 48, 48 };
 
 	auto InitializingDefaults = [this](Sprite& sprite, const std::string& filename,
-								const SDL_Point& spriteDimensions, SDL_Rect& rect)
+		const SDL_Point& spriteDimensions, SDL_Rect& rect)
 	{
 		sprite.Load(filename);
 		sprite.SetOriginalDimension();
@@ -18,7 +18,7 @@ ModalWindow::ModalWindow()
 		rect = { this->GetPosition().x, this->GetPosition().y, sprite.GetSpriteDimension().x,
 					sprite.GetSpriteDimension().y };
 	};
-	
+
 	InitializingDefaults(m_backgroundSprite, defaultBackgroundSpriteFilename, defaultBackgroundSpriteDimension, m_windowRect);
 	InitializingDefaults(m_closeButtonSprite, defaultCloseButtonSpriteFilename, defaultCloseButtonSpriteDimension, m_closeButtonRect);
 }
