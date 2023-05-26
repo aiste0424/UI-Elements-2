@@ -1,9 +1,0 @@
-﻿  Main.cpp
-Main.obj : error LNK2019: unresolved external symbol "public: static class Screen * __cdecl Screen::Instance(void)" (?Instance@Screen@@SAPEAV1@XZ) referenced in function SDL_main
-Sprite.obj : error LNK2001: unresolved external symbol "public: static class Screen * __cdecl Screen::Instance(void)" (?Instance@Screen@@SAPEAV1@XZ)
-Main.obj : error LNK2019: unresolved external symbol "public: bool __cdecl Screen::Initialize(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &,struct SDL_Point const &)" (?Initialize@Screen@@QEAA_NAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBUSDL_Point@@@Z) referenced in function SDL_main
-Main.obj : error LNK2019: unresolved external symbol "public: void __cdecl Screen::Clear(void)" (?Clear@Screen@@QEAAXXZ) referenced in function SDL_main
-Main.obj : error LNK2019: unresolved external symbol "public: void __cdecl Screen::Present(void)" (?Present@Screen@@QEAAXXZ) referenced in function SDL_main
-Main.obj : error LNK2019: unresolved external symbol "public: void __cdecl Screen::Shutdown(void)" (?Shutdown@Screen@@QEAAXXZ) referenced in function SDL_main
-Sprite.obj : error LNK2019: unresolved external symbol "public: struct SDL_Renderer * __cdecl Screen::GetRenderer(void)" (?GetRenderer@Screen@@QEAAPEAUSDL_Renderer@@XZ) referenced in function "public: bool __cdecl Sprite::Load(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &)" (?Load@Sprite@@QEAA_NAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z)
-C:\Users\aiste\source\repos\FinalArtefact\x64\Debug\FinalArtefact.exe : fatal error LNK1120: 6 unresolved externals
