@@ -1,0 +1,17 @@
+﻿  Button.cpp
+  Checkbox.cpp
+  GameObject.cpp
+  Input.cpp
+  Main.cpp
+  ModalWindow.cpp
+  ProgressBar.cpp
+  Screen.cpp
+  Slider.cpp
+C:\Users\aiste\Desktop\Personal\University\UI Elements 2\UI Elements 2\Slider.cpp(59,49): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+  Sprite.cpp
+  ToggleButton.cpp
+  Generating code
+  Previous IPDB not found, fall back to full compilation.
+  All 186 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  UI Elements 2.vcxproj -> C:\Users\aiste\Desktop\Personal\University\UI Elements 2\x64\Release\UI Elements 2.exe
